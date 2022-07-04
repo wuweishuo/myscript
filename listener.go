@@ -1,4 +1,4 @@
-package main
+package myscript
 
 import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
@@ -34,7 +34,6 @@ func (l Listener) EnterStatementList(c *parser.StatementListContext) {
 }
 
 func (l Listener) EnterStatement(c *parser.StatementContext) {
-	c.GetChildren()
 	//TODO implement me
 	panic("implement me")
 }
@@ -90,6 +89,11 @@ func (l Listener) EnterLiteralExpression(c *parser.LiteralExpressionContext) {
 }
 
 func (l Listener) EnterLogicalOrExpression(c *parser.LogicalOrExpressionContext) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (l Listener) EnterNotExpression(c *parser.NotExpressionContext) {
 	//TODO implement me
 	panic("implement me")
 }
@@ -175,6 +179,11 @@ func (l Listener) ExitLiteralExpression(c *parser.LiteralExpressionContext) {
 }
 
 func (l Listener) ExitLogicalOrExpression(c *parser.LogicalOrExpressionContext) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (l Listener) ExitNotExpression(c *parser.NotExpressionContext) {
 	//TODO implement me
 	panic("implement me")
 }

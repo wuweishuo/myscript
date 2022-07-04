@@ -35,14 +35,13 @@ func myscriptparserParserInit() {
 	staticData.literalNames = []string{
 		"", "'else'", "'if'", "'('", "')'", "'{'", "'}'", "'='", "','", "'*'",
 		"'/'", "'+'", "'-'", "'%'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='",
-		"'||'", "'&&'", "'!'", "'null'",
+		"'||'", "'&&'", "'!'",
 	}
 	staticData.symbolicNames = []string{
 		"", "ELSE", "IF", "L_PAREN", "R_PAREN", "L_CURLY", "R_CURLY", "ASSIGN",
 		"COMMA", "MUL", "DIV", "ADD", "SUB", "MOD", "EQUALS", "NOT_EQUALS",
 		"LESS", "LESS_OR_EQUALS", "GREATER", "GREATER_OR_EQUALS", "LOGICAL_OR",
-		"LOGICAL_AND", "EXCLAMATION", "NULL", "BOOL", "NUMBER", "IDENTIFIER",
-		"WHITESPACE",
+		"LOGICAL_AND", "EXCLAMATION", "BOOL", "NUMBER", "IDENTIFIER", "WHITESPACE",
 	}
 	staticData.ruleNames = []string{
 		"statementList", "statement", "assignStmt", "ifStmt", "block", "funcStmt",
@@ -50,45 +49,46 @@ func myscriptparserParserInit() {
 	}
 	staticData.predictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 27, 94, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 26, 96, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 1, 0, 4, 0, 20, 8, 0,
 		11, 0, 12, 0, 21, 1, 1, 1, 1, 1, 1, 3, 1, 27, 8, 1, 1, 2, 1, 2, 1, 2, 1,
 		2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 3, 3, 39, 8, 3, 3, 3, 41, 8, 3,
 		1, 4, 1, 4, 1, 4, 1, 4, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 6, 1, 6, 1, 6,
 		5, 6, 55, 8, 6, 10, 6, 12, 6, 58, 9, 6, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1,
-		7, 1, 7, 3, 7, 67, 8, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7,
-		1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 5, 7, 87, 8,
-		7, 10, 7, 12, 7, 90, 9, 7, 1, 8, 1, 8, 1, 8, 0, 1, 14, 9, 0, 2, 4, 6, 8,
-		10, 12, 14, 16, 0, 5, 2, 0, 9, 10, 13, 13, 1, 0, 11, 12, 1, 0, 16, 19,
-		1, 0, 14, 15, 1, 0, 23, 25, 98, 0, 19, 1, 0, 0, 0, 2, 26, 1, 0, 0, 0, 4,
-		28, 1, 0, 0, 0, 6, 32, 1, 0, 0, 0, 8, 42, 1, 0, 0, 0, 10, 46, 1, 0, 0,
-		0, 12, 51, 1, 0, 0, 0, 14, 66, 1, 0, 0, 0, 16, 91, 1, 0, 0, 0, 18, 20,
-		3, 2, 1, 0, 19, 18, 1, 0, 0, 0, 20, 21, 1, 0, 0, 0, 21, 19, 1, 0, 0, 0,
-		21, 22, 1, 0, 0, 0, 22, 1, 1, 0, 0, 0, 23, 27, 3, 4, 2, 0, 24, 27, 3, 6,
-		3, 0, 25, 27, 3, 10, 5, 0, 26, 23, 1, 0, 0, 0, 26, 24, 1, 0, 0, 0, 26,
-		25, 1, 0, 0, 0, 27, 3, 1, 0, 0, 0, 28, 29, 5, 26, 0, 0, 29, 30, 5, 7, 0,
-		0, 30, 31, 3, 14, 7, 0, 31, 5, 1, 0, 0, 0, 32, 33, 5, 2, 0, 0, 33, 34,
-		3, 12, 6, 0, 34, 40, 3, 8, 4, 0, 35, 38, 5, 1, 0, 0, 36, 39, 3, 6, 3, 0,
-		37, 39, 3, 8, 4, 0, 38, 36, 1, 0, 0, 0, 38, 37, 1, 0, 0, 0, 39, 41, 1,
-		0, 0, 0, 40, 35, 1, 0, 0, 0, 40, 41, 1, 0, 0, 0, 41, 7, 1, 0, 0, 0, 42,
-		43, 5, 5, 0, 0, 43, 44, 3, 0, 0, 0, 44, 45, 5, 6, 0, 0, 45, 9, 1, 0, 0,
-		0, 46, 47, 5, 26, 0, 0, 47, 48, 5, 3, 0, 0, 48, 49, 3, 12, 6, 0, 49, 50,
-		5, 4, 0, 0, 50, 11, 1, 0, 0, 0, 51, 56, 3, 14, 7, 0, 52, 53, 5, 8, 0, 0,
-		53, 55, 3, 14, 7, 0, 54, 52, 1, 0, 0, 0, 55, 58, 1, 0, 0, 0, 56, 54, 1,
-		0, 0, 0, 56, 57, 1, 0, 0, 0, 57, 13, 1, 0, 0, 0, 58, 56, 1, 0, 0, 0, 59,
-		60, 6, 7, -1, 0, 60, 67, 3, 16, 8, 0, 61, 67, 5, 26, 0, 0, 62, 63, 5, 3,
-		0, 0, 63, 64, 3, 12, 6, 0, 64, 65, 5, 4, 0, 0, 65, 67, 1, 0, 0, 0, 66,
-		59, 1, 0, 0, 0, 66, 61, 1, 0, 0, 0, 66, 62, 1, 0, 0, 0, 67, 88, 1, 0, 0,
-		0, 68, 69, 10, 9, 0, 0, 69, 70, 7, 0, 0, 0, 70, 87, 3, 14, 7, 10, 71, 72,
-		10, 8, 0, 0, 72, 73, 7, 1, 0, 0, 73, 87, 3, 14, 7, 9, 74, 75, 10, 7, 0,
-		0, 75, 76, 7, 2, 0, 0, 76, 87, 3, 14, 7, 8, 77, 78, 10, 6, 0, 0, 78, 79,
-		7, 3, 0, 0, 79, 87, 3, 14, 7, 7, 80, 81, 10, 5, 0, 0, 81, 82, 5, 21, 0,
-		0, 82, 87, 3, 14, 7, 6, 83, 84, 10, 4, 0, 0, 84, 85, 5, 20, 0, 0, 85, 87,
-		3, 14, 7, 5, 86, 68, 1, 0, 0, 0, 86, 71, 1, 0, 0, 0, 86, 74, 1, 0, 0, 0,
-		86, 77, 1, 0, 0, 0, 86, 80, 1, 0, 0, 0, 86, 83, 1, 0, 0, 0, 87, 90, 1,
-		0, 0, 0, 88, 86, 1, 0, 0, 0, 88, 89, 1, 0, 0, 0, 89, 15, 1, 0, 0, 0, 90,
-		88, 1, 0, 0, 0, 91, 92, 7, 4, 0, 0, 92, 17, 1, 0, 0, 0, 8, 21, 26, 38,
-		40, 56, 66, 86, 88,
+		7, 1, 7, 1, 7, 1, 7, 3, 7, 69, 8, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7,
+		1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7,
+		5, 7, 89, 8, 7, 10, 7, 12, 7, 92, 9, 7, 1, 8, 1, 8, 1, 8, 0, 1, 14, 9,
+		0, 2, 4, 6, 8, 10, 12, 14, 16, 0, 5, 2, 0, 9, 10, 13, 13, 1, 0, 11, 12,
+		1, 0, 16, 19, 1, 0, 14, 15, 1, 0, 23, 24, 101, 0, 19, 1, 0, 0, 0, 2, 26,
+		1, 0, 0, 0, 4, 28, 1, 0, 0, 0, 6, 32, 1, 0, 0, 0, 8, 42, 1, 0, 0, 0, 10,
+		46, 1, 0, 0, 0, 12, 51, 1, 0, 0, 0, 14, 68, 1, 0, 0, 0, 16, 93, 1, 0, 0,
+		0, 18, 20, 3, 2, 1, 0, 19, 18, 1, 0, 0, 0, 20, 21, 1, 0, 0, 0, 21, 19,
+		1, 0, 0, 0, 21, 22, 1, 0, 0, 0, 22, 1, 1, 0, 0, 0, 23, 27, 3, 4, 2, 0,
+		24, 27, 3, 6, 3, 0, 25, 27, 3, 10, 5, 0, 26, 23, 1, 0, 0, 0, 26, 24, 1,
+		0, 0, 0, 26, 25, 1, 0, 0, 0, 27, 3, 1, 0, 0, 0, 28, 29, 5, 25, 0, 0, 29,
+		30, 5, 7, 0, 0, 30, 31, 3, 14, 7, 0, 31, 5, 1, 0, 0, 0, 32, 33, 5, 2, 0,
+		0, 33, 34, 3, 12, 6, 0, 34, 40, 3, 8, 4, 0, 35, 38, 5, 1, 0, 0, 36, 39,
+		3, 6, 3, 0, 37, 39, 3, 8, 4, 0, 38, 36, 1, 0, 0, 0, 38, 37, 1, 0, 0, 0,
+		39, 41, 1, 0, 0, 0, 40, 35, 1, 0, 0, 0, 40, 41, 1, 0, 0, 0, 41, 7, 1, 0,
+		0, 0, 42, 43, 5, 5, 0, 0, 43, 44, 3, 0, 0, 0, 44, 45, 5, 6, 0, 0, 45, 9,
+		1, 0, 0, 0, 46, 47, 5, 25, 0, 0, 47, 48, 5, 3, 0, 0, 48, 49, 3, 12, 6,
+		0, 49, 50, 5, 4, 0, 0, 50, 11, 1, 0, 0, 0, 51, 56, 3, 14, 7, 0, 52, 53,
+		5, 8, 0, 0, 53, 55, 3, 14, 7, 0, 54, 52, 1, 0, 0, 0, 55, 58, 1, 0, 0, 0,
+		56, 54, 1, 0, 0, 0, 56, 57, 1, 0, 0, 0, 57, 13, 1, 0, 0, 0, 58, 56, 1,
+		0, 0, 0, 59, 60, 6, 7, -1, 0, 60, 61, 5, 22, 0, 0, 61, 69, 3, 14, 7, 10,
+		62, 69, 3, 16, 8, 0, 63, 69, 5, 25, 0, 0, 64, 65, 5, 3, 0, 0, 65, 66, 3,
+		12, 6, 0, 66, 67, 5, 4, 0, 0, 67, 69, 1, 0, 0, 0, 68, 59, 1, 0, 0, 0, 68,
+		62, 1, 0, 0, 0, 68, 63, 1, 0, 0, 0, 68, 64, 1, 0, 0, 0, 69, 90, 1, 0, 0,
+		0, 70, 71, 10, 9, 0, 0, 71, 72, 7, 0, 0, 0, 72, 89, 3, 14, 7, 10, 73, 74,
+		10, 8, 0, 0, 74, 75, 7, 1, 0, 0, 75, 89, 3, 14, 7, 9, 76, 77, 10, 7, 0,
+		0, 77, 78, 7, 2, 0, 0, 78, 89, 3, 14, 7, 8, 79, 80, 10, 6, 0, 0, 80, 81,
+		7, 3, 0, 0, 81, 89, 3, 14, 7, 7, 82, 83, 10, 5, 0, 0, 83, 84, 5, 21, 0,
+		0, 84, 89, 3, 14, 7, 6, 85, 86, 10, 4, 0, 0, 86, 87, 5, 20, 0, 0, 87, 89,
+		3, 14, 7, 5, 88, 70, 1, 0, 0, 0, 88, 73, 1, 0, 0, 0, 88, 76, 1, 0, 0, 0,
+		88, 79, 1, 0, 0, 0, 88, 82, 1, 0, 0, 0, 88, 85, 1, 0, 0, 0, 89, 92, 1,
+		0, 0, 0, 90, 88, 1, 0, 0, 0, 90, 91, 1, 0, 0, 0, 91, 15, 1, 0, 0, 0, 92,
+		90, 1, 0, 0, 0, 93, 94, 7, 4, 0, 0, 94, 17, 1, 0, 0, 0, 8, 21, 26, 38,
+		40, 56, 68, 88, 90,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -149,11 +149,10 @@ const (
 	MyScriptParserLOGICAL_OR        = 20
 	MyScriptParserLOGICAL_AND       = 21
 	MyScriptParserEXCLAMATION       = 22
-	MyScriptParserNULL              = 23
-	MyScriptParserBOOL              = 24
-	MyScriptParserNUMBER            = 25
-	MyScriptParserIDENTIFIER        = 26
-	MyScriptParserWHITESPACE        = 27
+	MyScriptParserBOOL              = 23
+	MyScriptParserNUMBER            = 24
+	MyScriptParserIDENTIFIER        = 25
+	MyScriptParserWHITESPACE        = 26
 )
 
 // MyScriptParser rules.
@@ -1807,6 +1806,66 @@ func (s *LogicalOrExpressionContext) Accept(visitor antlr.ParseTreeVisitor) inte
 	}
 }
 
+type NotExpressionContext struct {
+	*SingleExpressionContext
+}
+
+func NewNotExpressionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NotExpressionContext {
+	var p = new(NotExpressionContext)
+
+	p.SingleExpressionContext = NewEmptySingleExpressionContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*SingleExpressionContext))
+
+	return p
+}
+
+func (s *NotExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NotExpressionContext) EXCLAMATION() antlr.TerminalNode {
+	return s.GetToken(MyScriptParserEXCLAMATION, 0)
+}
+
+func (s *NotExpressionContext) SingleExpression() ISingleExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISingleExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISingleExpressionContext)
+}
+
+func (s *NotExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MyScriptParserListener); ok {
+		listenerT.EnterNotExpression(s)
+	}
+}
+
+func (s *NotExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MyScriptParserListener); ok {
+		listenerT.ExitNotExpression(s)
+	}
+}
+
+func (s *NotExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case MyScriptParserVisitor:
+		return t.VisitNotExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type EqualityExpressionContext struct {
 	*SingleExpressionContext
 }
@@ -2069,17 +2128,30 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(66)
+	p.SetState(68)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case MyScriptParserNULL, MyScriptParserBOOL, MyScriptParserNUMBER:
-		localctx = NewLiteralExpressionContext(p, localctx)
+	case MyScriptParserEXCLAMATION:
+		localctx = NewNotExpressionContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 
 		{
 			p.SetState(60)
+			p.Match(MyScriptParserEXCLAMATION)
+		}
+		{
+			p.SetState(61)
+			p.singleExpression(10)
+		}
+
+	case MyScriptParserBOOL, MyScriptParserNUMBER:
+		localctx = NewLiteralExpressionContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(62)
 			p.Literal()
 		}
 
@@ -2088,7 +2160,7 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(61)
+			p.SetState(63)
 			p.Match(MyScriptParserIDENTIFIER)
 		}
 
@@ -2097,15 +2169,15 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(62)
+			p.SetState(64)
 			p.Match(MyScriptParserL_PAREN)
 		}
 		{
-			p.SetState(63)
+			p.SetState(65)
 			p.ExpressionSequence()
 		}
 		{
-			p.SetState(64)
+			p.SetState(66)
 			p.Match(MyScriptParserR_PAREN)
 		}
 
@@ -2113,7 +2185,7 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(88)
+	p.SetState(90)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
 
@@ -2123,19 +2195,19 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(86)
+			p.SetState(88)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewMultiplicativeExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
-				p.SetState(68)
+				p.SetState(70)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 9)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 9)", ""))
 				}
 				{
-					p.SetState(69)
+					p.SetState(71)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MyScriptParserMUL)|(1<<MyScriptParserDIV)|(1<<MyScriptParserMOD))) != 0) {
@@ -2146,20 +2218,20 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					}
 				}
 				{
-					p.SetState(70)
+					p.SetState(72)
 					p.singleExpression(10)
 				}
 
 			case 2:
 				localctx = NewAdditiveExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
-				p.SetState(71)
+				p.SetState(73)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 8)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 8)", ""))
 				}
 				{
-					p.SetState(72)
+					p.SetState(74)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == MyScriptParserADD || _la == MyScriptParserSUB) {
@@ -2170,20 +2242,20 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					}
 				}
 				{
-					p.SetState(73)
+					p.SetState(75)
 					p.singleExpression(9)
 				}
 
 			case 3:
 				localctx = NewRelationalExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
-				p.SetState(74)
+				p.SetState(76)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 7)", ""))
 				}
 				{
-					p.SetState(75)
+					p.SetState(77)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MyScriptParserLESS)|(1<<MyScriptParserLESS_OR_EQUALS)|(1<<MyScriptParserGREATER)|(1<<MyScriptParserGREATER_OR_EQUALS))) != 0) {
@@ -2194,20 +2266,20 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					}
 				}
 				{
-					p.SetState(76)
+					p.SetState(78)
 					p.singleExpression(8)
 				}
 
 			case 4:
 				localctx = NewEqualityExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
-				p.SetState(77)
+				p.SetState(79)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
 				}
 				{
-					p.SetState(78)
+					p.SetState(80)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == MyScriptParserEQUALS || _la == MyScriptParserNOT_EQUALS) {
@@ -2218,48 +2290,48 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					}
 				}
 				{
-					p.SetState(79)
+					p.SetState(81)
 					p.singleExpression(7)
 				}
 
 			case 5:
 				localctx = NewLogicalAndExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
-				p.SetState(80)
+				p.SetState(82)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
 				}
 				{
-					p.SetState(81)
+					p.SetState(83)
 					p.Match(MyScriptParserLOGICAL_AND)
 				}
 				{
-					p.SetState(82)
+					p.SetState(84)
 					p.singleExpression(6)
 				}
 
 			case 6:
 				localctx = NewLogicalOrExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
-				p.SetState(83)
+				p.SetState(85)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
 				}
 				{
-					p.SetState(84)
+					p.SetState(86)
 					p.Match(MyScriptParserLOGICAL_OR)
 				}
 				{
-					p.SetState(85)
+					p.SetState(87)
 					p.singleExpression(5)
 				}
 
 			}
 
 		}
-		p.SetState(90)
+		p.SetState(92)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
 	}
@@ -2304,10 +2376,6 @@ func NewLiteralContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 }
 
 func (s *LiteralContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *LiteralContext) NULL() antlr.TerminalNode {
-	return s.GetToken(MyScriptParserNULL, 0)
-}
 
 func (s *LiteralContext) BOOL() antlr.TerminalNode {
 	return s.GetToken(MyScriptParserBOOL, 0)
@@ -2373,10 +2441,10 @@ func (p *MyScriptParser) Literal() (localctx ILiteralContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(91)
+		p.SetState(93)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MyScriptParserNULL)|(1<<MyScriptParserBOOL)|(1<<MyScriptParserNUMBER))) != 0) {
+		if !(_la == MyScriptParserBOOL || _la == MyScriptParserNUMBER) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)

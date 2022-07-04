@@ -101,6 +101,12 @@ func (s *BaseMyScriptParserListener) EnterLogicalOrExpression(ctx *LogicalOrExpr
 // ExitLogicalOrExpression is called when production LogicalOrExpression is exited.
 func (s *BaseMyScriptParserListener) ExitLogicalOrExpression(ctx *LogicalOrExpressionContext) {}
 
+// EnterNotExpression is called when production NotExpression is entered.
+func (s *BaseMyScriptParserListener) EnterNotExpression(ctx *NotExpressionContext) {}
+
+// ExitNotExpression is called when production NotExpression is exited.
+func (s *BaseMyScriptParserListener) ExitNotExpression(ctx *NotExpressionContext) {}
+
 // EnterEqualityExpression is called when production EqualityExpression is entered.
 func (s *BaseMyScriptParserListener) EnterEqualityExpression(ctx *EqualityExpressionContext) {}
 

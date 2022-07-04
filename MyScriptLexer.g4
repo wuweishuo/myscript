@@ -35,7 +35,7 @@ LOGICAL_AND            : '&&';
 EXCLAMATION            : '!';
 
 // Null Literals
-NULL                   : 'null';
+//NULL                   : 'null';
 
 // Boolean Literals
 BOOL                   : 'true'|'false';

@@ -47,6 +47,9 @@ type MyScriptParserListener interface {
 	// EnterLogicalOrExpression is called when entering the LogicalOrExpression production.
 	EnterLogicalOrExpression(c *LogicalOrExpressionContext)
 
+	// EnterNotExpression is called when entering the NotExpression production.
+	EnterNotExpression(c *NotExpressionContext)
+
 	// EnterEqualityExpression is called when entering the EqualityExpression production.
 	EnterEqualityExpression(c *EqualityExpressionContext)
 
@@ -97,6 +100,9 @@ type MyScriptParserListener interface {
 
 	// ExitLogicalOrExpression is called when exiting the LogicalOrExpression production.
 	ExitLogicalOrExpression(c *LogicalOrExpressionContext)
+
+	// ExitNotExpression is called when exiting the NotExpression production.
+	ExitNotExpression(c *NotExpressionContext)
 
 	// ExitEqualityExpression is called when exiting the EqualityExpression production.
 	ExitEqualityExpression(c *EqualityExpressionContext)
