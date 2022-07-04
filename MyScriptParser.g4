@@ -16,7 +16,7 @@ statement:
 assignStmt: IDENTIFIER ASSIGN singleExpression;
 
 ifStmt:
-	IF expressionSequence block (ELSE (ifStmt | block))?;
+	IF singleExpression block (ELSE (ifStmt | block))?;
 
 block: L_CURLY statementList R_CURLY;
 

@@ -6,6 +6,7 @@ import (
 )
 
 type Listener struct {
+	script Script
 }
 
 func (l Listener) VisitTerminal(node antlr.TerminalNode) {
@@ -49,8 +50,7 @@ func (l Listener) EnterIfStmt(c *parser.IfStmtContext) {
 }
 
 func (l Listener) EnterBlock(c *parser.BlockContext) {
-	//TODO implement me
-	panic("implement me")
+	l.script.variableStack.PushVariables()
 }
 
 func (l Listener) EnterFuncStmt(c *parser.FuncStmtContext) {
@@ -139,8 +139,7 @@ func (l Listener) ExitIfStmt(c *parser.IfStmtContext) {
 }
 
 func (l Listener) ExitBlock(c *parser.BlockContext) {
-	//TODO implement me
-	panic("implement me")
+	l.script.variableStack.PopVariables()
 }
 
 func (l Listener) ExitFuncStmt(c *parser.FuncStmtContext) {

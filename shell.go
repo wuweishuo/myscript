@@ -81,31 +81,10 @@ func (c Shell) convertType(t reflect.Type) (FieldType, error) {
 	}
 }
 
-type FieldType int
-
-const (
-	StringFieldType = 1
-	BoolFieldType   = 2
-	NumberFieldType = 3
-	ErrorFieldType  = 4
-)
-
-type Field struct {
-	fieldValue interface{}
-	fieldType  FieldType
-}
-
-type Function struct {
-	fn               interface{}
-	argumentTypeList []FieldType
-	returnTypeList   []FieldType
-}
-
 type Script struct {
-	ast       parser.IStatementListContext
-	listener  Listener
-	functions map[string]Function
-	variables map[string]Field
+	ast           parser.IStatementListContext
+	functions     map[string]Function
+	variableStack VariableStack
 }
 
 func (c Script) Eval(ctx context.Context) (err error) {
@@ -115,43 +94,14 @@ func (c Script) Eval(ctx context.Context) (err error) {
 			err = errors.Errorf("%v", e)
 		}
 	}()
-	antlr.ParseTreeWalkerDefault.Walk(c.listener, c.ast)
+	antlr.ParseTreeWalkerDefault.Walk(&Listener{script: c}, c.ast)
 	return nil
 }
 
 func (c Script) PutVariable(name string, val interface{}) error {
-	field, err := c.convertField(val)
-	if err != nil {
-		return err
-	}
-	c.variables[name] = field
-	return nil
-}
-
-func (c Script) convertField(val interface{}) (Field, error) {
-	var field Field
-	switch val.(type) {
-	case string:
-		field = Field{
-			fieldType:  StringFieldType,
-			fieldValue: val,
-		}
-	case bool:
-		field = Field{
-			fieldType:  BoolFieldType,
-			fieldValue: val,
-		}
-	case int, int64, int32, int16, int8, float32, float64, uint, uint8, uint16, uint32, uint64:
-		field = Field{
-			fieldType:  NumberFieldType,
-			fieldValue: val,
-		}
-	default:
-		return field, errors.New("not support type")
-	}
-	return field, nil
+	return c.variableStack.SetVariable(name, val)
 }
 
 func (c Script) GetResult(name string) Field {
-	return c.variables[name]
+	return c.variableStack.GetVariable(name)
 }
