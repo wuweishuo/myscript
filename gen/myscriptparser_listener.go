@@ -1,4 +1,4 @@
-// Code generated from D:/GoProject/myscript\MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
+// Code generated from /Users/bytedance/GolandProjects/myscript/MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
 
 package parser // MyScriptParser
 
@@ -23,23 +23,41 @@ type MyScriptParserListener interface {
 	// EnterBlock is called when entering the block production.
 	EnterBlock(c *BlockContext)
 
-	// EnterArithmetic is called when entering the arithmetic production.
-	EnterArithmetic(c *ArithmeticContext)
-
-	// EnterLogicStmt is called when entering the logicStmt production.
-	EnterLogicStmt(c *LogicStmtContext)
-
-	// EnterRelation is called when entering the relation production.
-	EnterRelation(c *RelationContext)
-
 	// EnterFuncStmt is called when entering the funcStmt production.
 	EnterFuncStmt(c *FuncStmtContext)
 
-	// EnterParamList is called when entering the paramList production.
-	EnterParamList(c *ParamListContext)
+	// EnterExpressionSequence is called when entering the expressionSequence production.
+	EnterExpressionSequence(c *ExpressionSequenceContext)
 
-	// EnterParam is called when entering the param production.
-	EnterParam(c *ParamContext)
+	// EnterParenthesizedExpression is called when entering the ParenthesizedExpression production.
+	EnterParenthesizedExpression(c *ParenthesizedExpressionContext)
+
+	// EnterAdditiveExpression is called when entering the AdditiveExpression production.
+	EnterAdditiveExpression(c *AdditiveExpressionContext)
+
+	// EnterRelationalExpression is called when entering the RelationalExpression production.
+	EnterRelationalExpression(c *RelationalExpressionContext)
+
+	// EnterLogicalAndExpression is called when entering the LogicalAndExpression production.
+	EnterLogicalAndExpression(c *LogicalAndExpressionContext)
+
+	// EnterLiteralExpression is called when entering the LiteralExpression production.
+	EnterLiteralExpression(c *LiteralExpressionContext)
+
+	// EnterLogicalOrExpression is called when entering the LogicalOrExpression production.
+	EnterLogicalOrExpression(c *LogicalOrExpressionContext)
+
+	// EnterEqualityExpression is called when entering the EqualityExpression production.
+	EnterEqualityExpression(c *EqualityExpressionContext)
+
+	// EnterMultiplicativeExpression is called when entering the MultiplicativeExpression production.
+	EnterMultiplicativeExpression(c *MultiplicativeExpressionContext)
+
+	// EnterIdentifierExpression is called when entering the IdentifierExpression production.
+	EnterIdentifierExpression(c *IdentifierExpressionContext)
+
+	// EnterLiteral is called when entering the literal production.
+	EnterLiteral(c *LiteralContext)
 
 	// ExitStatementList is called when exiting the statementList production.
 	ExitStatementList(c *StatementListContext)
@@ -56,21 +74,39 @@ type MyScriptParserListener interface {
 	// ExitBlock is called when exiting the block production.
 	ExitBlock(c *BlockContext)
 
-	// ExitArithmetic is called when exiting the arithmetic production.
-	ExitArithmetic(c *ArithmeticContext)
-
-	// ExitLogicStmt is called when exiting the logicStmt production.
-	ExitLogicStmt(c *LogicStmtContext)
-
-	// ExitRelation is called when exiting the relation production.
-	ExitRelation(c *RelationContext)
-
 	// ExitFuncStmt is called when exiting the funcStmt production.
 	ExitFuncStmt(c *FuncStmtContext)
 
-	// ExitParamList is called when exiting the paramList production.
-	ExitParamList(c *ParamListContext)
+	// ExitExpressionSequence is called when exiting the expressionSequence production.
+	ExitExpressionSequence(c *ExpressionSequenceContext)
 
-	// ExitParam is called when exiting the param production.
-	ExitParam(c *ParamContext)
+	// ExitParenthesizedExpression is called when exiting the ParenthesizedExpression production.
+	ExitParenthesizedExpression(c *ParenthesizedExpressionContext)
+
+	// ExitAdditiveExpression is called when exiting the AdditiveExpression production.
+	ExitAdditiveExpression(c *AdditiveExpressionContext)
+
+	// ExitRelationalExpression is called when exiting the RelationalExpression production.
+	ExitRelationalExpression(c *RelationalExpressionContext)
+
+	// ExitLogicalAndExpression is called when exiting the LogicalAndExpression production.
+	ExitLogicalAndExpression(c *LogicalAndExpressionContext)
+
+	// ExitLiteralExpression is called when exiting the LiteralExpression production.
+	ExitLiteralExpression(c *LiteralExpressionContext)
+
+	// ExitLogicalOrExpression is called when exiting the LogicalOrExpression production.
+	ExitLogicalOrExpression(c *LogicalOrExpressionContext)
+
+	// ExitEqualityExpression is called when exiting the EqualityExpression production.
+	ExitEqualityExpression(c *EqualityExpressionContext)
+
+	// ExitMultiplicativeExpression is called when exiting the MultiplicativeExpression production.
+	ExitMultiplicativeExpression(c *MultiplicativeExpressionContext)
+
+	// ExitIdentifierExpression is called when exiting the IdentifierExpression production.
+	ExitIdentifierExpression(c *IdentifierExpressionContext)
+
+	// ExitLiteral is called when exiting the literal production.
+	ExitLiteral(c *LiteralContext)
 }

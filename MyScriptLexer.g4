@@ -17,6 +17,7 @@ MUL                    : '*';
 DIV                    : '/';
 ADD                    : '+';
 SUB                    : '-';
+MOD                    : '%';
 
 // Relation operators
 EQUALS                 : '==';
@@ -33,7 +34,15 @@ LOGICAL_AND            : '&&';
 // Unary operators
 EXCLAMATION            : '!';
 
-NUMBER                 : [0-9]+;
-IDENTIFIER             : [a-zA-Z]+[_0-9]*;
+// Null Literals
+NULL                   : 'null';
+
+// Boolean Literals
 BOOL                   : 'true'|'false';
+
+// Numeric Literals
+NUMBER                 : [0-9]+;
+
+// Identifier Names and Identifiers
+IDENTIFIER             : [a-zA-Z]+[a-zA-Z_0-9]*;
 WHITESPACE             : [ \t\r\n]+ -> skip ;    // 跳过空格、制表符、回车符和换行符

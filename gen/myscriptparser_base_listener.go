@@ -1,4 +1,4 @@
-// Code generated from D:/GoProject/myscript\MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
+// Code generated from /Users/bytedance/GolandProjects/myscript/MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
 
 package parser // MyScriptParser
 
@@ -51,38 +51,78 @@ func (s *BaseMyScriptParserListener) EnterBlock(ctx *BlockContext) {}
 // ExitBlock is called when production block is exited.
 func (s *BaseMyScriptParserListener) ExitBlock(ctx *BlockContext) {}
 
-// EnterArithmetic is called when production arithmetic is entered.
-func (s *BaseMyScriptParserListener) EnterArithmetic(ctx *ArithmeticContext) {}
-
-// ExitArithmetic is called when production arithmetic is exited.
-func (s *BaseMyScriptParserListener) ExitArithmetic(ctx *ArithmeticContext) {}
-
-// EnterLogicStmt is called when production logicStmt is entered.
-func (s *BaseMyScriptParserListener) EnterLogicStmt(ctx *LogicStmtContext) {}
-
-// ExitLogicStmt is called when production logicStmt is exited.
-func (s *BaseMyScriptParserListener) ExitLogicStmt(ctx *LogicStmtContext) {}
-
-// EnterRelation is called when production relation is entered.
-func (s *BaseMyScriptParserListener) EnterRelation(ctx *RelationContext) {}
-
-// ExitRelation is called when production relation is exited.
-func (s *BaseMyScriptParserListener) ExitRelation(ctx *RelationContext) {}
-
 // EnterFuncStmt is called when production funcStmt is entered.
 func (s *BaseMyScriptParserListener) EnterFuncStmt(ctx *FuncStmtContext) {}
 
 // ExitFuncStmt is called when production funcStmt is exited.
 func (s *BaseMyScriptParserListener) ExitFuncStmt(ctx *FuncStmtContext) {}
 
-// EnterParamList is called when production paramList is entered.
-func (s *BaseMyScriptParserListener) EnterParamList(ctx *ParamListContext) {}
+// EnterExpressionSequence is called when production expressionSequence is entered.
+func (s *BaseMyScriptParserListener) EnterExpressionSequence(ctx *ExpressionSequenceContext) {}
 
-// ExitParamList is called when production paramList is exited.
-func (s *BaseMyScriptParserListener) ExitParamList(ctx *ParamListContext) {}
+// ExitExpressionSequence is called when production expressionSequence is exited.
+func (s *BaseMyScriptParserListener) ExitExpressionSequence(ctx *ExpressionSequenceContext) {}
 
-// EnterParam is called when production param is entered.
-func (s *BaseMyScriptParserListener) EnterParam(ctx *ParamContext) {}
+// EnterParenthesizedExpression is called when production ParenthesizedExpression is entered.
+func (s *BaseMyScriptParserListener) EnterParenthesizedExpression(ctx *ParenthesizedExpressionContext) {
+}
 
-// ExitParam is called when production param is exited.
-func (s *BaseMyScriptParserListener) ExitParam(ctx *ParamContext) {}
+// ExitParenthesizedExpression is called when production ParenthesizedExpression is exited.
+func (s *BaseMyScriptParserListener) ExitParenthesizedExpression(ctx *ParenthesizedExpressionContext) {
+}
+
+// EnterAdditiveExpression is called when production AdditiveExpression is entered.
+func (s *BaseMyScriptParserListener) EnterAdditiveExpression(ctx *AdditiveExpressionContext) {}
+
+// ExitAdditiveExpression is called when production AdditiveExpression is exited.
+func (s *BaseMyScriptParserListener) ExitAdditiveExpression(ctx *AdditiveExpressionContext) {}
+
+// EnterRelationalExpression is called when production RelationalExpression is entered.
+func (s *BaseMyScriptParserListener) EnterRelationalExpression(ctx *RelationalExpressionContext) {}
+
+// ExitRelationalExpression is called when production RelationalExpression is exited.
+func (s *BaseMyScriptParserListener) ExitRelationalExpression(ctx *RelationalExpressionContext) {}
+
+// EnterLogicalAndExpression is called when production LogicalAndExpression is entered.
+func (s *BaseMyScriptParserListener) EnterLogicalAndExpression(ctx *LogicalAndExpressionContext) {}
+
+// ExitLogicalAndExpression is called when production LogicalAndExpression is exited.
+func (s *BaseMyScriptParserListener) ExitLogicalAndExpression(ctx *LogicalAndExpressionContext) {}
+
+// EnterLiteralExpression is called when production LiteralExpression is entered.
+func (s *BaseMyScriptParserListener) EnterLiteralExpression(ctx *LiteralExpressionContext) {}
+
+// ExitLiteralExpression is called when production LiteralExpression is exited.
+func (s *BaseMyScriptParserListener) ExitLiteralExpression(ctx *LiteralExpressionContext) {}
+
+// EnterLogicalOrExpression is called when production LogicalOrExpression is entered.
+func (s *BaseMyScriptParserListener) EnterLogicalOrExpression(ctx *LogicalOrExpressionContext) {}
+
+// ExitLogicalOrExpression is called when production LogicalOrExpression is exited.
+func (s *BaseMyScriptParserListener) ExitLogicalOrExpression(ctx *LogicalOrExpressionContext) {}
+
+// EnterEqualityExpression is called when production EqualityExpression is entered.
+func (s *BaseMyScriptParserListener) EnterEqualityExpression(ctx *EqualityExpressionContext) {}
+
+// ExitEqualityExpression is called when production EqualityExpression is exited.
+func (s *BaseMyScriptParserListener) ExitEqualityExpression(ctx *EqualityExpressionContext) {}
+
+// EnterMultiplicativeExpression is called when production MultiplicativeExpression is entered.
+func (s *BaseMyScriptParserListener) EnterMultiplicativeExpression(ctx *MultiplicativeExpressionContext) {
+}
+
+// ExitMultiplicativeExpression is called when production MultiplicativeExpression is exited.
+func (s *BaseMyScriptParserListener) ExitMultiplicativeExpression(ctx *MultiplicativeExpressionContext) {
+}
+
+// EnterIdentifierExpression is called when production IdentifierExpression is entered.
+func (s *BaseMyScriptParserListener) EnterIdentifierExpression(ctx *IdentifierExpressionContext) {}
+
+// ExitIdentifierExpression is called when production IdentifierExpression is exited.
+func (s *BaseMyScriptParserListener) ExitIdentifierExpression(ctx *IdentifierExpressionContext) {}
+
+// EnterLiteral is called when production literal is entered.
+func (s *BaseMyScriptParserListener) EnterLiteral(ctx *LiteralContext) {}
+
+// ExitLiteral is called when production literal is exited.
+func (s *BaseMyScriptParserListener) ExitLiteral(ctx *LiteralContext) {}

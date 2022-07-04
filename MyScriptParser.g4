@@ -13,34 +13,31 @@ statement:
 	| funcStmt
 	;
 
-assignStmt: IDENTIFIER ASSIGN (arithmetic|relation|NUMBER|BOOL);
+assignStmt: IDENTIFIER ASSIGN singleExpression;
 
 ifStmt:
-	IF logicStmt block (ELSE (ifStmt | block))?;
+	IF expressionSequence block (ELSE (ifStmt | block))?;
 
 block: L_CURLY statementList R_CURLY;
 
-arithmetic:
-    arithmetic op=(MUL|DIV) arithmetic
-    | arithmetic op=(ADD|SUB) arithmetic
-    | L_PAREN arithmetic R_PAREN
-    | NUMBER
-    | IDENTIFIER
+funcStmt: IDENTIFIER L_PAREN expressionSequence R_PAREN;
+
+expressionSequence: singleExpression (COMMA singleExpression)*;
+
+singleExpression:
+    singleExpression (MUL | DIV | MOD) singleExpression                                                 # MultiplicativeExpression
+    | singleExpression (ADD | SUB) singleExpression                                                     # AdditiveExpression
+    | singleExpression (GREATER | LESS | GREATER_OR_EQUALS | LESS_OR_EQUALS) singleExpression           # RelationalExpression
+    | singleExpression (EQUALS | NOT_EQUALS) singleExpression                                           # EqualityExpression
+    | singleExpression LOGICAL_AND singleExpression                                                     # LogicalAndExpression
+    | singleExpression LOGICAL_OR singleExpression                                                      # LogicalOrExpression
+    | literal                                                                                           # LiteralExpression
+    | IDENTIFIER                                                                                        # IdentifierExpression
+    | L_PAREN expressionSequence R_PAREN                                                                # ParenthesizedExpression
     ;
 
-logicStmt:
-    relation (op=(LOGICAL_OR|LOGICAL_AND) relation)*;
-
-relation:
-    EXCLAMATION relation
-    | arithmetic op=(EQUALS|NOT_EQUALS|LESS|LESS_OR_EQUALS|GREATER|GREATER_OR_EQUALS) arithmetic
-    | L_PAREN (relation) R_PAREN
+literal:
+    NULL
     | BOOL
-    | IDENTIFIER
+    | NUMBER
     ;
-
-funcStmt: IDENTIFIER L_PAREN paramList R_PAREN;
-
-paramList: param (COMMA param)*;
-
-param: IDENTIFIER|BOOL|NUMBER;
