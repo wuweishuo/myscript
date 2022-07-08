@@ -5,8 +5,27 @@ import (
 	parser "myscript/gen"
 )
 
+type TempVariables struct {
+	stack []Variable
+}
+
+func (v *TempVariables) Push(field Variable) {
+	v.stack = append(v.stack, field)
+}
+
+func (v *TempVariables) Pop() Variable {
+	if len(v.stack) == 0 {
+		return NullVariableInstance
+	}
+	field := v.stack[len(v.stack)-1]
+	v.stack = v.stack[:len(v.stack)-1]
+	return field
+}
+
 type Listener struct {
-	script Script
+	parser.BaseMyScriptParserListener
+	script        Script
+	tempVariables TempVariables
 }
 
 func (l Listener) VisitTerminal(node antlr.TerminalNode) {
@@ -129,8 +148,12 @@ func (l Listener) ExitStatement(c *parser.StatementContext) {
 }
 
 func (l Listener) ExitAssignStmt(c *parser.AssignStmtContext) {
-	//TODO implement me
-	panic("implement me")
+	variableName := c.IDENTIFIER().GetText()
+	variable := l.tempVariables.Pop()
+	err := l.script.variableStack.SetVariable(variableName, variable)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func (l Listener) ExitIfStmt(c *parser.IfStmtContext) {
@@ -152,11 +175,6 @@ func (l Listener) ExitExpressionSequence(c *parser.ExpressionSequenceContext) {
 	panic("implement me")
 }
 
-func (l Listener) ExitParenthesizedExpression(c *parser.ParenthesizedExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
 func (l Listener) ExitAdditiveExpression(c *parser.AdditiveExpressionContext) {
 	//TODO implement me
 	panic("implement me")
@@ -168,11 +186,6 @@ func (l Listener) ExitRelationalExpression(c *parser.RelationalExpressionContext
 }
 
 func (l Listener) ExitLogicalAndExpression(c *parser.LogicalAndExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitLiteralExpression(c *parser.LiteralExpressionContext) {
 	//TODO implement me
 	panic("implement me")
 }
@@ -193,16 +206,35 @@ func (l Listener) ExitEqualityExpression(c *parser.EqualityExpressionContext) {
 }
 
 func (l Listener) ExitMultiplicativeExpression(c *parser.MultiplicativeExpressionContext) {
+	right := l.tempVariables.Pop()
+	left := l.tempVariables.Pop()
+	if right.FieldType() != NumberFieldType || left.FieldType() != NullFieldType {
+		panic(NotSupportTypeErr)
+	}
+
 	//TODO implement me
 	panic("implement me")
 }
 
 func (l Listener) ExitIdentifierExpression(c *parser.IdentifierExpressionContext) {
-	//TODO implement me
-	panic("implement me")
+	variableName := c.IDENTIFIER().GetText()
+	variable := l.script.variableStack.GetVariable(variableName)
+	l.tempVariables.Push(variable)
 }
 
 func (l Listener) ExitLiteral(c *parser.LiteralContext) {
-	//TODO implement me
-	panic("implement me")
+	if c.NUMBER() != nil {
+		variable, err := NewVariableFromString(NumberFieldType, c.NUMBER().GetText())
+		if err != nil {
+			panic(err)
+		}
+		l.tempVariables.Push(variable)
+	}
+	if c.BOOL() != nil {
+		variable, err := NewVariableFromString(BoolFieldType, c.BOOL().GetText())
+		if err != nil {
+			panic(err)
+		}
+		l.tempVariables.Push(variable)
+	}
 }
