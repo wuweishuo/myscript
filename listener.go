@@ -1,21 +1,22 @@
 package myscript
 
 import (
-	"github.com/antlr/antlr4/runtime/Go/antlr"
+	"fmt"
 	parser "myscript/gen"
+	"myscript/variable"
 )
 
 type TempVariables struct {
-	stack []Variable
+	stack []variable.Variable
 }
 
-func (v *TempVariables) Push(field Variable) {
+func (v *TempVariables) Push(field variable.Variable) {
 	v.stack = append(v.stack, field)
 }
 
-func (v *TempVariables) Pop() Variable {
+func (v *TempVariables) Pop() variable.Variable {
 	if len(v.stack) == 0 {
-		return NullVariableInstance
+		return variable.NullVariableInstance
 	}
 	field := v.stack[len(v.stack)-1]
 	v.stack = v.stack[:len(v.stack)-1]
@@ -28,213 +29,153 @@ type Listener struct {
 	tempVariables TempVariables
 }
 
-func (l Listener) VisitTerminal(node antlr.TerminalNode) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) VisitErrorNode(node antlr.ErrorNode) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterEveryRule(ctx antlr.ParserRuleContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitEveryRule(ctx antlr.ParserRuleContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterStatementList(c *parser.StatementListContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterStatement(c *parser.StatementContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterAssignStmt(c *parser.AssignStmtContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterIfStmt(c *parser.IfStmtContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterBlock(c *parser.BlockContext) {
+func (l *Listener) EnterBlock(c *parser.BlockContext) {
 	l.script.variableStack.PushVariables()
 }
 
-func (l Listener) EnterFuncStmt(c *parser.FuncStmtContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterExpressionSequence(c *parser.ExpressionSequenceContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterParenthesizedExpression(c *parser.ParenthesizedExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterAdditiveExpression(c *parser.AdditiveExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterRelationalExpression(c *parser.RelationalExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterLogicalAndExpression(c *parser.LogicalAndExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterLiteralExpression(c *parser.LiteralExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterLogicalOrExpression(c *parser.LogicalOrExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterNotExpression(c *parser.NotExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterEqualityExpression(c *parser.EqualityExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterMultiplicativeExpression(c *parser.MultiplicativeExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterIdentifierExpression(c *parser.IdentifierExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) EnterLiteral(c *parser.LiteralContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitStatementList(c *parser.StatementListContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitStatement(c *parser.StatementContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitAssignStmt(c *parser.AssignStmtContext) {
-	variableName := c.IDENTIFIER().GetText()
-	variable := l.tempVariables.Pop()
-	err := l.script.variableStack.SetVariable(variableName, variable)
-	if err != nil {
-		panic(err)
+func (l *Listener) ExitFuncExpression(ctx *parser.FuncExpressionContext) {
+	argsExpr := ctx.ExpressionSequence()
+	argsCount := argsExpr.GetChildCount()/2 + 1
+	args := make([]variable.Variable, argsCount)
+	for i := argsCount - 1; i >= 0; i-- {
+		args[i] = l.tempVariables.Pop()
 	}
+	fn := l.script.variableStack.GetVariable(ctx.IDENTIFIER().GetText())
+	if f, ok := fn.(*variable.FunctionVariable); ok {
+		res, err := f.Call(args...)
+		if err != nil {
+			panic(err)
+		}
+		l.tempVariables.Push(res)
+		return
+	}
+	panic(variable.NotSupportTypeErr)
 }
 
-func (l Listener) ExitIfStmt(c *parser.IfStmtContext) {
-	//TODO implement me
-	panic("implement me")
+func (l *Listener) ExitAssignStmt(c *parser.AssignStmtContext) {
+	variableName := c.IDENTIFIER().GetText()
+	v := l.tempVariables.Pop()
+	l.script.variableStack.SetVariable(variableName, v)
 }
 
-func (l Listener) ExitBlock(c *parser.BlockContext) {
+func (l *Listener) ExitIfStmt(c *parser.IfStmtContext) {
+	fmt.Println(c.GetText())
+}
+
+func (l *Listener) ExitBlock(c *parser.BlockContext) {
 	l.script.variableStack.PopVariables()
 }
 
-func (l Listener) ExitFuncStmt(c *parser.FuncStmtContext) {
-	//TODO implement me
-	panic("implement me")
+func (l *Listener) ExitAdditiveExpression(c *parser.AdditiveExpressionContext) {
+	right, rok := l.tempVariables.Pop().(*variable.NumberVariable)
+	left, lok := l.tempVariables.Pop().(*variable.NumberVariable)
+	if !rok || !lok {
+		panic(variable.NotSupportTypeErr)
+	}
+
+	if c.ADD() != nil {
+		l.tempVariables.Push(left.Add(right))
+	}
+	if c.SUB() != nil {
+		l.tempVariables.Push(left.Sub(right))
+	}
 }
 
-func (l Listener) ExitExpressionSequence(c *parser.ExpressionSequenceContext) {
-	//TODO implement me
-	panic("implement me")
+func (l *Listener) ExitRelationalExpression(c *parser.RelationalExpressionContext) {
+	right, rok := l.tempVariables.Pop().(*variable.NumberVariable)
+	left, lok := l.tempVariables.Pop().(*variable.NumberVariable)
+	if !rok || !lok {
+		panic(variable.NotSupportTypeErr)
+	}
+
+	if c.GREATER() != nil {
+		l.tempVariables.Push(left.Greater(right))
+	}
+	if c.GREATER_OR_EQUALS() != nil {
+		l.tempVariables.Push(left.GreaterOrEqual(right))
+	}
+	if c.LESS() != nil {
+		l.tempVariables.Push(left.Less(right))
+	}
+	if c.LESS_OR_EQUALS() != nil {
+		l.tempVariables.Push(left.LessOrEqual(right))
+	}
 }
 
-func (l Listener) ExitAdditiveExpression(c *parser.AdditiveExpressionContext) {
-	//TODO implement me
-	panic("implement me")
+func (l *Listener) ExitLogicalAndExpression(c *parser.LogicalAndExpressionContext) {
+	right, rok := l.tempVariables.Pop().(*variable.BoolVariable)
+	left, lok := l.tempVariables.Pop().(*variable.BoolVariable)
+	if !rok || !lok {
+		panic(variable.NotSupportTypeErr)
+	}
+	l.tempVariables.Push(left.And(right))
 }
 
-func (l Listener) ExitRelationalExpression(c *parser.RelationalExpressionContext) {
-	//TODO implement me
-	panic("implement me")
+func (l *Listener) ExitLogicalOrExpression(c *parser.LogicalOrExpressionContext) {
+	right, rok := l.tempVariables.Pop().(*variable.BoolVariable)
+	left, lok := l.tempVariables.Pop().(*variable.BoolVariable)
+	if !rok || !lok {
+		panic(variable.NotSupportTypeErr)
+	}
+	l.tempVariables.Push(left.Or(right))
 }
 
-func (l Listener) ExitLogicalAndExpression(c *parser.LogicalAndExpressionContext) {
-	//TODO implement me
-	panic("implement me")
+func (l *Listener) ExitNotExpression(c *parser.NotExpressionContext) {
+	v, ok := l.tempVariables.Pop().(*variable.BoolVariable)
+	if !ok {
+		panic(variable.NotSupportTypeErr)
+	}
+	l.tempVariables.Push(v.Not())
 }
 
-func (l Listener) ExitLogicalOrExpression(c *parser.LogicalOrExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitNotExpression(c *parser.NotExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitEqualityExpression(c *parser.EqualityExpressionContext) {
-	//TODO implement me
-	panic("implement me")
-}
-
-func (l Listener) ExitMultiplicativeExpression(c *parser.MultiplicativeExpressionContext) {
+func (l *Listener) ExitEqualityExpression(c *parser.EqualityExpressionContext) {
 	right := l.tempVariables.Pop()
 	left := l.tempVariables.Pop()
-	if right.FieldType() != NumberFieldType || left.FieldType() != NullFieldType {
-		panic(NotSupportTypeErr)
+	if c.EQUALS() != nil {
+		l.tempVariables.Push(left.Equal(right))
+	}
+	if c.NOT_EQUALS() != nil {
+		l.tempVariables.Push(left.NotEqual(right))
+	}
+}
+
+func (l *Listener) ExitMultiplicativeExpression(c *parser.MultiplicativeExpressionContext) {
+	right, rok := l.tempVariables.Pop().(*variable.NumberVariable)
+	left, lok := l.tempVariables.Pop().(*variable.NumberVariable)
+	if !rok || !lok {
+		panic(variable.NotSupportTypeErr)
 	}
 
-	//TODO implement me
-	panic("implement me")
+	if c.MUL() != nil {
+		l.tempVariables.Push(left.Mul(right))
+	}
+	if c.DIV() != nil {
+		l.tempVariables.Push(left.Div(right))
+	}
+	if c.MOD() != nil {
+		l.tempVariables.Push(left.Mod(right))
+	}
 }
 
-func (l Listener) ExitIdentifierExpression(c *parser.IdentifierExpressionContext) {
+func (l *Listener) ExitIdentifierExpression(c *parser.IdentifierExpressionContext) {
 	variableName := c.IDENTIFIER().GetText()
-	variable := l.script.variableStack.GetVariable(variableName)
-	l.tempVariables.Push(variable)
+	v := l.script.variableStack.GetVariable(variableName)
+	l.tempVariables.Push(v)
 }
 
-func (l Listener) ExitLiteral(c *parser.LiteralContext) {
+func (l *Listener) ExitLiteral(c *parser.LiteralContext) {
 	if c.NUMBER() != nil {
-		variable, err := NewVariableFromString(NumberFieldType, c.NUMBER().GetText())
+		v, err := variable.NewNumberVariableFromString(c.NUMBER().GetText())
 		if err != nil {
 			panic(err)
 		}
-		l.tempVariables.Push(variable)
+		l.tempVariables.Push(v)
 	}
 	if c.BOOL() != nil {
-		variable, err := NewVariableFromString(BoolFieldType, c.BOOL().GetText())
+		v, err := variable.NewBoolVariableFromString(c.BOOL().GetText())
 		if err != nil {
 			panic(err)
 		}
-		l.tempVariables.Push(variable)
+		l.tempVariables.Push(v)
 	}
 }

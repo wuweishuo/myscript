@@ -10,7 +10,6 @@ statementList: (statement)+;
 statement:
 	assignStmt
 	| ifStmt
-	| funcStmt
 	;
 
 assignStmt: IDENTIFIER ASSIGN singleExpression;
@@ -19,8 +18,6 @@ ifStmt:
 	IF singleExpression block (ELSE (ifStmt | block))?;
 
 block: L_CURLY statementList R_CURLY;
-
-funcStmt: IDENTIFIER L_PAREN expressionSequence R_PAREN;
 
 expressionSequence: singleExpression (COMMA singleExpression)*;
 
@@ -33,6 +30,7 @@ singleExpression:
     | singleExpression LOGICAL_AND singleExpression                                                     # LogicalAndExpression
     | singleExpression LOGICAL_OR singleExpression                                                      # LogicalOrExpression
     | literal                                                                                           # LiteralExpression
+    | IDENTIFIER L_PAREN expressionSequence R_PAREN                                                     # FuncExpression
     | IDENTIFIER                                                                                        # IdentifierExpression
     | L_PAREN expressionSequence R_PAREN                                                                # ParenthesizedExpression
     ;

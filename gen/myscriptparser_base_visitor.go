@@ -1,4 +1,4 @@
-// Code generated from /Users/bytedance/GolandProjects/myscript/MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
+// Code generated from D:/GoProject/myscript\MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
 
 package parser // MyScriptParser
 
@@ -28,10 +28,6 @@ func (v *BaseMyScriptParserVisitor) VisitBlock(ctx *BlockContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseMyScriptParserVisitor) VisitFuncStmt(ctx *FuncStmtContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
 func (v *BaseMyScriptParserVisitor) VisitExpressionSequence(ctx *ExpressionSequenceContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -49,6 +45,10 @@ func (v *BaseMyScriptParserVisitor) VisitRelationalExpression(ctx *RelationalExp
 }
 
 func (v *BaseMyScriptParserVisitor) VisitLogicalAndExpression(ctx *LogicalAndExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseMyScriptParserVisitor) VisitFuncExpression(ctx *FuncExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

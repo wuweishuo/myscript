@@ -5,6 +5,7 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/pkg/errors"
 	parser "myscript/gen"
+	"myscript/variable"
 )
 
 type Shell struct{}
@@ -19,14 +20,15 @@ func (c Shell) Compile(text string) (script Script, err error) {
 	tokenStream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 	p := parser.NewMyScriptParser(tokenStream)
 	return Script{
-		ast: p.StatementList(),
+		ast:           p.StatementList(),
+		variableStack: variable.NewStack(),
 	}, nil
 
 }
 
 type Script struct {
 	ast           parser.IStatementListContext
-	variableStack VariableStack
+	variableStack variable.Stack
 }
 
 func (c Script) Eval(ctx context.Context) (err error) {
@@ -41,13 +43,14 @@ func (c Script) Eval(ctx context.Context) (err error) {
 }
 
 func (c Script) PutVariable(name string, val interface{}) error {
-	variable, err := NewVariableFromInterface(val)
+	v, err := variable.NewVariableFromInterface(val)
 	if err != nil {
 		return err
 	}
-	return c.variableStack.SetVariable(name, variable)
+	c.variableStack.SetVariable(name, v)
+	return nil
 }
 
-func (c Script) GetResult(name string) Variable {
+func (c Script) GetResult(name string) variable.Variable {
 	return c.variableStack.GetVariable(name)
 }

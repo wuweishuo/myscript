@@ -1,4 +1,4 @@
-// Code generated from /Users/bytedance/GolandProjects/myscript/MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
+// Code generated from D:/GoProject/myscript\MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
 
 package parser // MyScriptParser
 
@@ -23,9 +23,6 @@ type MyScriptParserVisitor interface {
 	// Visit a parse tree produced by MyScriptParser#block.
 	VisitBlock(ctx *BlockContext) interface{}
 
-	// Visit a parse tree produced by MyScriptParser#funcStmt.
-	VisitFuncStmt(ctx *FuncStmtContext) interface{}
-
 	// Visit a parse tree produced by MyScriptParser#expressionSequence.
 	VisitExpressionSequence(ctx *ExpressionSequenceContext) interface{}
 
@@ -40,6 +37,9 @@ type MyScriptParserVisitor interface {
 
 	// Visit a parse tree produced by MyScriptParser#LogicalAndExpression.
 	VisitLogicalAndExpression(ctx *LogicalAndExpressionContext) interface{}
+
+	// Visit a parse tree produced by MyScriptParser#FuncExpression.
+	VisitFuncExpression(ctx *FuncExpressionContext) interface{}
 
 	// Visit a parse tree produced by MyScriptParser#LiteralExpression.
 	VisitLiteralExpression(ctx *LiteralExpressionContext) interface{}

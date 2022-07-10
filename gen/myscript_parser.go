@@ -1,4 +1,4 @@
-// Code generated from /Users/bytedance/GolandProjects/myscript/MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
+// Code generated from D:/GoProject/myscript\MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
 
 package parser // MyScriptParser
 
@@ -44,51 +44,50 @@ func myscriptparserParserInit() {
 		"LOGICAL_AND", "EXCLAMATION", "BOOL", "NUMBER", "IDENTIFIER", "WHITESPACE",
 	}
 	staticData.ruleNames = []string{
-		"statementList", "statement", "assignStmt", "ifStmt", "block", "funcStmt",
-		"expressionSequence", "singleExpression", "literal",
+		"statementList", "statement", "assignStmt", "ifStmt", "block", "expressionSequence",
+		"singleExpression", "literal",
 	}
 	staticData.predictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 26, 96, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
-		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 1, 0, 4, 0, 20, 8, 0,
-		11, 0, 12, 0, 21, 1, 1, 1, 1, 1, 1, 3, 1, 27, 8, 1, 1, 2, 1, 2, 1, 2, 1,
-		2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 3, 3, 39, 8, 3, 3, 3, 41, 8, 3,
-		1, 4, 1, 4, 1, 4, 1, 4, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 6, 1, 6, 1, 6,
-		5, 6, 55, 8, 6, 10, 6, 12, 6, 58, 9, 6, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1,
-		7, 1, 7, 1, 7, 1, 7, 3, 7, 69, 8, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7,
-		1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7,
-		5, 7, 89, 8, 7, 10, 7, 12, 7, 92, 9, 7, 1, 8, 1, 8, 1, 8, 0, 1, 14, 9,
-		0, 2, 4, 6, 8, 10, 12, 14, 16, 0, 5, 2, 0, 9, 10, 13, 13, 1, 0, 11, 12,
-		1, 0, 16, 19, 1, 0, 14, 15, 1, 0, 23, 24, 101, 0, 19, 1, 0, 0, 0, 2, 26,
-		1, 0, 0, 0, 4, 28, 1, 0, 0, 0, 6, 32, 1, 0, 0, 0, 8, 42, 1, 0, 0, 0, 10,
-		46, 1, 0, 0, 0, 12, 51, 1, 0, 0, 0, 14, 68, 1, 0, 0, 0, 16, 93, 1, 0, 0,
-		0, 18, 20, 3, 2, 1, 0, 19, 18, 1, 0, 0, 0, 20, 21, 1, 0, 0, 0, 21, 19,
-		1, 0, 0, 0, 21, 22, 1, 0, 0, 0, 22, 1, 1, 0, 0, 0, 23, 27, 3, 4, 2, 0,
-		24, 27, 3, 6, 3, 0, 25, 27, 3, 10, 5, 0, 26, 23, 1, 0, 0, 0, 26, 24, 1,
-		0, 0, 0, 26, 25, 1, 0, 0, 0, 27, 3, 1, 0, 0, 0, 28, 29, 5, 25, 0, 0, 29,
-		30, 5, 7, 0, 0, 30, 31, 3, 14, 7, 0, 31, 5, 1, 0, 0, 0, 32, 33, 5, 2, 0,
-		0, 33, 34, 3, 12, 6, 0, 34, 40, 3, 8, 4, 0, 35, 38, 5, 1, 0, 0, 36, 39,
-		3, 6, 3, 0, 37, 39, 3, 8, 4, 0, 38, 36, 1, 0, 0, 0, 38, 37, 1, 0, 0, 0,
-		39, 41, 1, 0, 0, 0, 40, 35, 1, 0, 0, 0, 40, 41, 1, 0, 0, 0, 41, 7, 1, 0,
-		0, 0, 42, 43, 5, 5, 0, 0, 43, 44, 3, 0, 0, 0, 44, 45, 5, 6, 0, 0, 45, 9,
-		1, 0, 0, 0, 46, 47, 5, 25, 0, 0, 47, 48, 5, 3, 0, 0, 48, 49, 3, 12, 6,
-		0, 49, 50, 5, 4, 0, 0, 50, 11, 1, 0, 0, 0, 51, 56, 3, 14, 7, 0, 52, 53,
-		5, 8, 0, 0, 53, 55, 3, 14, 7, 0, 54, 52, 1, 0, 0, 0, 55, 58, 1, 0, 0, 0,
-		56, 54, 1, 0, 0, 0, 56, 57, 1, 0, 0, 0, 57, 13, 1, 0, 0, 0, 58, 56, 1,
-		0, 0, 0, 59, 60, 6, 7, -1, 0, 60, 61, 5, 22, 0, 0, 61, 69, 3, 14, 7, 10,
-		62, 69, 3, 16, 8, 0, 63, 69, 5, 25, 0, 0, 64, 65, 5, 3, 0, 0, 65, 66, 3,
-		12, 6, 0, 66, 67, 5, 4, 0, 0, 67, 69, 1, 0, 0, 0, 68, 59, 1, 0, 0, 0, 68,
-		62, 1, 0, 0, 0, 68, 63, 1, 0, 0, 0, 68, 64, 1, 0, 0, 0, 69, 90, 1, 0, 0,
-		0, 70, 71, 10, 9, 0, 0, 71, 72, 7, 0, 0, 0, 72, 89, 3, 14, 7, 10, 73, 74,
-		10, 8, 0, 0, 74, 75, 7, 1, 0, 0, 75, 89, 3, 14, 7, 9, 76, 77, 10, 7, 0,
-		0, 77, 78, 7, 2, 0, 0, 78, 89, 3, 14, 7, 8, 79, 80, 10, 6, 0, 0, 80, 81,
-		7, 3, 0, 0, 81, 89, 3, 14, 7, 7, 82, 83, 10, 5, 0, 0, 83, 84, 5, 21, 0,
-		0, 84, 89, 3, 14, 7, 6, 85, 86, 10, 4, 0, 0, 86, 87, 5, 20, 0, 0, 87, 89,
-		3, 14, 7, 5, 88, 70, 1, 0, 0, 0, 88, 73, 1, 0, 0, 0, 88, 76, 1, 0, 0, 0,
-		88, 79, 1, 0, 0, 0, 88, 82, 1, 0, 0, 0, 88, 85, 1, 0, 0, 0, 89, 92, 1,
-		0, 0, 0, 90, 88, 1, 0, 0, 0, 90, 91, 1, 0, 0, 0, 91, 15, 1, 0, 0, 0, 92,
-		90, 1, 0, 0, 0, 93, 94, 7, 4, 0, 0, 94, 17, 1, 0, 0, 0, 8, 21, 26, 38,
-		40, 56, 68, 88, 90,
+		4, 1, 26, 93, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 1, 0, 4, 0, 18, 8, 0, 11, 0, 12,
+		0, 19, 1, 1, 1, 1, 3, 1, 24, 8, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 3, 1, 3,
+		1, 3, 1, 3, 1, 3, 1, 3, 3, 3, 36, 8, 3, 3, 3, 38, 8, 3, 1, 4, 1, 4, 1,
+		4, 1, 4, 1, 5, 1, 5, 1, 5, 5, 5, 47, 8, 5, 10, 5, 12, 5, 50, 9, 5, 1, 6,
+		1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6,
+		1, 6, 3, 6, 66, 8, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1,
+		6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 5, 6, 86, 8, 6,
+		10, 6, 12, 6, 89, 9, 6, 1, 7, 1, 7, 1, 7, 0, 1, 12, 8, 0, 2, 4, 6, 8, 10,
+		12, 14, 0, 5, 2, 0, 9, 10, 13, 13, 1, 0, 11, 12, 1, 0, 16, 19, 1, 0, 14,
+		15, 1, 0, 23, 24, 99, 0, 17, 1, 0, 0, 0, 2, 23, 1, 0, 0, 0, 4, 25, 1, 0,
+		0, 0, 6, 29, 1, 0, 0, 0, 8, 39, 1, 0, 0, 0, 10, 43, 1, 0, 0, 0, 12, 65,
+		1, 0, 0, 0, 14, 90, 1, 0, 0, 0, 16, 18, 3, 2, 1, 0, 17, 16, 1, 0, 0, 0,
+		18, 19, 1, 0, 0, 0, 19, 17, 1, 0, 0, 0, 19, 20, 1, 0, 0, 0, 20, 1, 1, 0,
+		0, 0, 21, 24, 3, 4, 2, 0, 22, 24, 3, 6, 3, 0, 23, 21, 1, 0, 0, 0, 23, 22,
+		1, 0, 0, 0, 24, 3, 1, 0, 0, 0, 25, 26, 5, 25, 0, 0, 26, 27, 5, 7, 0, 0,
+		27, 28, 3, 12, 6, 0, 28, 5, 1, 0, 0, 0, 29, 30, 5, 2, 0, 0, 30, 31, 3,
+		12, 6, 0, 31, 37, 3, 8, 4, 0, 32, 35, 5, 1, 0, 0, 33, 36, 3, 6, 3, 0, 34,
+		36, 3, 8, 4, 0, 35, 33, 1, 0, 0, 0, 35, 34, 1, 0, 0, 0, 36, 38, 1, 0, 0,
+		0, 37, 32, 1, 0, 0, 0, 37, 38, 1, 0, 0, 0, 38, 7, 1, 0, 0, 0, 39, 40, 5,
+		5, 0, 0, 40, 41, 3, 0, 0, 0, 41, 42, 5, 6, 0, 0, 42, 9, 1, 0, 0, 0, 43,
+		48, 3, 12, 6, 0, 44, 45, 5, 8, 0, 0, 45, 47, 3, 12, 6, 0, 46, 44, 1, 0,
+		0, 0, 47, 50, 1, 0, 0, 0, 48, 46, 1, 0, 0, 0, 48, 49, 1, 0, 0, 0, 49, 11,
+		1, 0, 0, 0, 50, 48, 1, 0, 0, 0, 51, 52, 6, 6, -1, 0, 52, 53, 5, 22, 0,
+		0, 53, 66, 3, 12, 6, 11, 54, 66, 3, 14, 7, 0, 55, 56, 5, 25, 0, 0, 56,
+		57, 5, 3, 0, 0, 57, 58, 3, 10, 5, 0, 58, 59, 5, 4, 0, 0, 59, 66, 1, 0,
+		0, 0, 60, 66, 5, 25, 0, 0, 61, 62, 5, 3, 0, 0, 62, 63, 3, 10, 5, 0, 63,
+		64, 5, 4, 0, 0, 64, 66, 1, 0, 0, 0, 65, 51, 1, 0, 0, 0, 65, 54, 1, 0, 0,
+		0, 65, 55, 1, 0, 0, 0, 65, 60, 1, 0, 0, 0, 65, 61, 1, 0, 0, 0, 66, 87,
+		1, 0, 0, 0, 67, 68, 10, 10, 0, 0, 68, 69, 7, 0, 0, 0, 69, 86, 3, 12, 6,
+		11, 70, 71, 10, 9, 0, 0, 71, 72, 7, 1, 0, 0, 72, 86, 3, 12, 6, 10, 73,
+		74, 10, 8, 0, 0, 74, 75, 7, 2, 0, 0, 75, 86, 3, 12, 6, 9, 76, 77, 10, 7,
+		0, 0, 77, 78, 7, 3, 0, 0, 78, 86, 3, 12, 6, 8, 79, 80, 10, 6, 0, 0, 80,
+		81, 5, 21, 0, 0, 81, 86, 3, 12, 6, 7, 82, 83, 10, 5, 0, 0, 83, 84, 5, 20,
+		0, 0, 84, 86, 3, 12, 6, 6, 85, 67, 1, 0, 0, 0, 85, 70, 1, 0, 0, 0, 85,
+		73, 1, 0, 0, 0, 85, 76, 1, 0, 0, 0, 85, 79, 1, 0, 0, 0, 85, 82, 1, 0, 0,
+		0, 86, 89, 1, 0, 0, 0, 87, 85, 1, 0, 0, 0, 87, 88, 1, 0, 0, 0, 88, 13,
+		1, 0, 0, 0, 89, 87, 1, 0, 0, 0, 90, 91, 7, 4, 0, 0, 91, 15, 1, 0, 0, 0,
+		8, 19, 23, 35, 37, 48, 65, 85, 87,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -162,10 +161,9 @@ const (
 	MyScriptParserRULE_assignStmt         = 2
 	MyScriptParserRULE_ifStmt             = 3
 	MyScriptParserRULE_block              = 4
-	MyScriptParserRULE_funcStmt           = 5
-	MyScriptParserRULE_expressionSequence = 6
-	MyScriptParserRULE_singleExpression   = 7
-	MyScriptParserRULE_literal            = 8
+	MyScriptParserRULE_expressionSequence = 5
+	MyScriptParserRULE_singleExpression   = 6
+	MyScriptParserRULE_literal            = 7
 )
 
 // IStatementListContext is an interface to support dynamic dispatch.
@@ -302,17 +300,17 @@ func (p *MyScriptParser) StatementList() (localctx IStatementListContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(19)
+	p.SetState(17)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = _la == MyScriptParserIF || _la == MyScriptParserIDENTIFIER {
 		{
-			p.SetState(18)
+			p.SetState(16)
 			p.Statement()
 		}
 
-		p.SetState(21)
+		p.SetState(19)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -390,22 +388,6 @@ func (s *StatementContext) IfStmt() IIfStmtContext {
 	return t.(IIfStmtContext)
 }
 
-func (s *StatementContext) FuncStmt() IFuncStmtContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IFuncStmtContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IFuncStmtContext)
-}
-
 func (s *StatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -459,30 +441,26 @@ func (p *MyScriptParser) Statement() (localctx IStatementContext) {
 		}
 	}()
 
-	p.SetState(26)
+	p.SetState(23)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 1, p.GetParserRuleContext()) {
-	case 1:
+
+	switch p.GetTokenStream().LA(1) {
+	case MyScriptParserIDENTIFIER:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(23)
+			p.SetState(21)
 			p.AssignStmt()
 		}
 
-	case 2:
+	case MyScriptParserIF:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(24)
+			p.SetState(22)
 			p.IfStmt()
 		}
 
-	case 3:
-		p.EnterOuterAlt(localctx, 3)
-		{
-			p.SetState(25)
-			p.FuncStmt()
-		}
-
+	default:
+		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 
 	return localctx
@@ -605,15 +583,15 @@ func (p *MyScriptParser) AssignStmt() (localctx IAssignStmtContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(28)
+		p.SetState(25)
 		p.Match(MyScriptParserIDENTIFIER)
 	}
 	{
-		p.SetState(29)
+		p.SetState(26)
 		p.Match(MyScriptParserASSIGN)
 	}
 	{
-		p.SetState(30)
+		p.SetState(27)
 		p.singleExpression(0)
 	}
 
@@ -662,10 +640,10 @@ func (s *IfStmtContext) IF() antlr.TerminalNode {
 	return s.GetToken(MyScriptParserIF, 0)
 }
 
-func (s *IfStmtContext) ExpressionSequence() IExpressionSequenceContext {
+func (s *IfStmtContext) SingleExpression() ISingleExpressionContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IExpressionSequenceContext); ok {
+		if _, ok := ctx.(ISingleExpressionContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -675,7 +653,7 @@ func (s *IfStmtContext) ExpressionSequence() IExpressionSequenceContext {
 		return nil
 	}
 
-	return t.(IExpressionSequenceContext)
+	return t.(ISingleExpressionContext)
 }
 
 func (s *IfStmtContext) AllBlock() []IBlockContext {
@@ -795,39 +773,39 @@ func (p *MyScriptParser) IfStmt() (localctx IIfStmtContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(32)
+		p.SetState(29)
 		p.Match(MyScriptParserIF)
 	}
 	{
-		p.SetState(33)
-		p.ExpressionSequence()
+		p.SetState(30)
+		p.singleExpression(0)
 	}
 	{
-		p.SetState(34)
+		p.SetState(31)
 		p.Block()
 	}
-	p.SetState(40)
+	p.SetState(37)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == MyScriptParserELSE {
 		{
-			p.SetState(35)
+			p.SetState(32)
 			p.Match(MyScriptParserELSE)
 		}
-		p.SetState(38)
+		p.SetState(35)
 		p.GetErrorHandler().Sync(p)
 
 		switch p.GetTokenStream().LA(1) {
 		case MyScriptParserIF:
 			{
-				p.SetState(36)
+				p.SetState(33)
 				p.IfStmt()
 			}
 
 		case MyScriptParserL_CURLY:
 			{
-				p.SetState(37)
+				p.SetState(34)
 				p.Block()
 			}
 
@@ -957,156 +935,16 @@ func (p *MyScriptParser) Block() (localctx IBlockContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(42)
+		p.SetState(39)
 		p.Match(MyScriptParserL_CURLY)
 	}
 	{
-		p.SetState(43)
+		p.SetState(40)
 		p.StatementList()
 	}
 	{
-		p.SetState(44)
+		p.SetState(41)
 		p.Match(MyScriptParserR_CURLY)
-	}
-
-	return localctx
-}
-
-// IFuncStmtContext is an interface to support dynamic dispatch.
-type IFuncStmtContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsFuncStmtContext differentiates from other interfaces.
-	IsFuncStmtContext()
-}
-
-type FuncStmtContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyFuncStmtContext() *FuncStmtContext {
-	var p = new(FuncStmtContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = MyScriptParserRULE_funcStmt
-	return p
-}
-
-func (*FuncStmtContext) IsFuncStmtContext() {}
-
-func NewFuncStmtContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FuncStmtContext {
-	var p = new(FuncStmtContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = MyScriptParserRULE_funcStmt
-
-	return p
-}
-
-func (s *FuncStmtContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *FuncStmtContext) IDENTIFIER() antlr.TerminalNode {
-	return s.GetToken(MyScriptParserIDENTIFIER, 0)
-}
-
-func (s *FuncStmtContext) L_PAREN() antlr.TerminalNode {
-	return s.GetToken(MyScriptParserL_PAREN, 0)
-}
-
-func (s *FuncStmtContext) ExpressionSequence() IExpressionSequenceContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IExpressionSequenceContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExpressionSequenceContext)
-}
-
-func (s *FuncStmtContext) R_PAREN() antlr.TerminalNode {
-	return s.GetToken(MyScriptParserR_PAREN, 0)
-}
-
-func (s *FuncStmtContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *FuncStmtContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *FuncStmtContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyScriptParserListener); ok {
-		listenerT.EnterFuncStmt(s)
-	}
-}
-
-func (s *FuncStmtContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(MyScriptParserListener); ok {
-		listenerT.ExitFuncStmt(s)
-	}
-}
-
-func (s *FuncStmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case MyScriptParserVisitor:
-		return t.VisitFuncStmt(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *MyScriptParser) FuncStmt() (localctx IFuncStmtContext) {
-	this := p
-	_ = this
-
-	localctx = NewFuncStmtContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, MyScriptParserRULE_funcStmt)
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(46)
-		p.Match(MyScriptParserIDENTIFIER)
-	}
-	{
-		p.SetState(47)
-		p.Match(MyScriptParserL_PAREN)
-	}
-	{
-		p.SetState(48)
-		p.ExpressionSequence()
-	}
-	{
-		p.SetState(49)
-		p.Match(MyScriptParserR_PAREN)
 	}
 
 	return localctx
@@ -1234,7 +1072,7 @@ func (p *MyScriptParser) ExpressionSequence() (localctx IExpressionSequenceConte
 	_ = this
 
 	localctx = NewExpressionSequenceContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, MyScriptParserRULE_expressionSequence)
+	p.EnterRule(localctx, 10, MyScriptParserRULE_expressionSequence)
 	var _la int
 
 	defer func() {
@@ -1255,24 +1093,24 @@ func (p *MyScriptParser) ExpressionSequence() (localctx IExpressionSequenceConte
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(51)
+		p.SetState(43)
 		p.singleExpression(0)
 	}
-	p.SetState(56)
+	p.SetState(48)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == MyScriptParserCOMMA {
 		{
-			p.SetState(52)
+			p.SetState(44)
 			p.Match(MyScriptParserCOMMA)
 		}
 		{
-			p.SetState(53)
+			p.SetState(45)
 			p.singleExpression(0)
 		}
 
-		p.SetState(58)
+		p.SetState(50)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -1659,6 +1497,74 @@ func (s *LogicalAndExpressionContext) Accept(visitor antlr.ParseTreeVisitor) int
 	switch t := visitor.(type) {
 	case MyScriptParserVisitor:
 		return t.VisitLogicalAndExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type FuncExpressionContext struct {
+	*SingleExpressionContext
+}
+
+func NewFuncExpressionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FuncExpressionContext {
+	var p = new(FuncExpressionContext)
+
+	p.SingleExpressionContext = NewEmptySingleExpressionContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*SingleExpressionContext))
+
+	return p
+}
+
+func (s *FuncExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FuncExpressionContext) IDENTIFIER() antlr.TerminalNode {
+	return s.GetToken(MyScriptParserIDENTIFIER, 0)
+}
+
+func (s *FuncExpressionContext) L_PAREN() antlr.TerminalNode {
+	return s.GetToken(MyScriptParserL_PAREN, 0)
+}
+
+func (s *FuncExpressionContext) ExpressionSequence() IExpressionSequenceContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionSequenceContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionSequenceContext)
+}
+
+func (s *FuncExpressionContext) R_PAREN() antlr.TerminalNode {
+	return s.GetToken(MyScriptParserR_PAREN, 0)
+}
+
+func (s *FuncExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MyScriptParserListener); ok {
+		listenerT.EnterFuncExpression(s)
+	}
+}
+
+func (s *FuncExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(MyScriptParserListener); ok {
+		listenerT.ExitFuncExpression(s)
+	}
+}
+
+func (s *FuncExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case MyScriptParserVisitor:
+		return t.VisitFuncExpression(s)
 
 	default:
 		return t.VisitChildren(s)
@@ -2105,8 +2011,8 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 	localctx = NewSingleExpressionContext(p, p.GetParserRuleContext(), _parentState)
 	var _prevctx ISingleExpressionContext = localctx
 	var _ antlr.ParserRuleContext = _prevctx // TODO: To prevent unused variable warning.
-	_startState := 14
-	p.EnterRecursionRule(localctx, 14, MyScriptParserRULE_singleExpression, _p)
+	_startState := 12
+	p.EnterRecursionRule(localctx, 12, MyScriptParserRULE_singleExpression, _p)
 	var _la int
 
 	defer func() {
@@ -2128,64 +2034,82 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(68)
+	p.SetState(65)
 	p.GetErrorHandler().Sync(p)
-
-	switch p.GetTokenStream().LA(1) {
-	case MyScriptParserEXCLAMATION:
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext()) {
+	case 1:
 		localctx = NewNotExpressionContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 
 		{
-			p.SetState(60)
+			p.SetState(52)
 			p.Match(MyScriptParserEXCLAMATION)
 		}
 		{
-			p.SetState(61)
-			p.singleExpression(10)
+			p.SetState(53)
+			p.singleExpression(11)
 		}
 
-	case MyScriptParserBOOL, MyScriptParserNUMBER:
+	case 2:
 		localctx = NewLiteralExpressionContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(62)
+			p.SetState(54)
 			p.Literal()
 		}
 
-	case MyScriptParserIDENTIFIER:
+	case 3:
+		localctx = NewFuncExpressionContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(55)
+			p.Match(MyScriptParserIDENTIFIER)
+		}
+		{
+			p.SetState(56)
+			p.Match(MyScriptParserL_PAREN)
+		}
+		{
+			p.SetState(57)
+			p.ExpressionSequence()
+		}
+		{
+			p.SetState(58)
+			p.Match(MyScriptParserR_PAREN)
+		}
+
+	case 4:
 		localctx = NewIdentifierExpressionContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(63)
+			p.SetState(60)
 			p.Match(MyScriptParserIDENTIFIER)
 		}
 
-	case MyScriptParserL_PAREN:
+	case 5:
 		localctx = NewParenthesizedExpressionContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(64)
+			p.SetState(61)
 			p.Match(MyScriptParserL_PAREN)
 		}
 		{
-			p.SetState(65)
+			p.SetState(62)
 			p.ExpressionSequence()
 		}
 		{
-			p.SetState(66)
+			p.SetState(63)
 			p.Match(MyScriptParserR_PAREN)
 		}
 
-	default:
-		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(90)
+	p.SetState(87)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
 
@@ -2195,11 +2119,35 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(88)
+			p.SetState(85)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewMultiplicativeExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
+				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
+				p.SetState(67)
+
+				if !(p.Precpred(p.GetParserRuleContext(), 10)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 10)", ""))
+				}
+				{
+					p.SetState(68)
+					_la = p.GetTokenStream().LA(1)
+
+					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MyScriptParserMUL)|(1<<MyScriptParserDIV)|(1<<MyScriptParserMOD))) != 0) {
+						p.GetErrorHandler().RecoverInline(p)
+					} else {
+						p.GetErrorHandler().ReportMatch(p)
+						p.Consume()
+					}
+				}
+				{
+					p.SetState(69)
+					p.singleExpression(11)
+				}
+
+			case 2:
+				localctx = NewAdditiveExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
 				p.SetState(70)
 
@@ -2210,7 +2158,7 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					p.SetState(71)
 					_la = p.GetTokenStream().LA(1)
 
-					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MyScriptParserMUL)|(1<<MyScriptParserDIV)|(1<<MyScriptParserMOD))) != 0) {
+					if !(_la == MyScriptParserADD || _la == MyScriptParserSUB) {
 						p.GetErrorHandler().RecoverInline(p)
 					} else {
 						p.GetErrorHandler().ReportMatch(p)
@@ -2222,8 +2170,8 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					p.singleExpression(10)
 				}
 
-			case 2:
-				localctx = NewAdditiveExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
+			case 3:
+				localctx = NewRelationalExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
 				p.SetState(73)
 
@@ -2234,7 +2182,7 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					p.SetState(74)
 					_la = p.GetTokenStream().LA(1)
 
-					if !(_la == MyScriptParserADD || _la == MyScriptParserSUB) {
+					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MyScriptParserLESS)|(1<<MyScriptParserLESS_OR_EQUALS)|(1<<MyScriptParserGREATER)|(1<<MyScriptParserGREATER_OR_EQUALS))) != 0) {
 						p.GetErrorHandler().RecoverInline(p)
 					} else {
 						p.GetErrorHandler().ReportMatch(p)
@@ -2246,8 +2194,8 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					p.singleExpression(9)
 				}
 
-			case 3:
-				localctx = NewRelationalExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
+			case 4:
+				localctx = NewEqualityExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
 				p.SetState(76)
 
@@ -2258,7 +2206,7 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					p.SetState(77)
 					_la = p.GetTokenStream().LA(1)
 
-					if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<MyScriptParserLESS)|(1<<MyScriptParserLESS_OR_EQUALS)|(1<<MyScriptParserGREATER)|(1<<MyScriptParserGREATER_OR_EQUALS))) != 0) {
+					if !(_la == MyScriptParserEQUALS || _la == MyScriptParserNOT_EQUALS) {
 						p.GetErrorHandler().RecoverInline(p)
 					} else {
 						p.GetErrorHandler().ReportMatch(p)
@@ -2270,8 +2218,8 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 					p.singleExpression(8)
 				}
 
-			case 4:
-				localctx = NewEqualityExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
+			case 5:
+				localctx = NewLogicalAndExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
 				p.SetState(79)
 
@@ -2280,22 +2228,15 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 				}
 				{
 					p.SetState(80)
-					_la = p.GetTokenStream().LA(1)
-
-					if !(_la == MyScriptParserEQUALS || _la == MyScriptParserNOT_EQUALS) {
-						p.GetErrorHandler().RecoverInline(p)
-					} else {
-						p.GetErrorHandler().ReportMatch(p)
-						p.Consume()
-					}
+					p.Match(MyScriptParserLOGICAL_AND)
 				}
 				{
 					p.SetState(81)
 					p.singleExpression(7)
 				}
 
-			case 5:
-				localctx = NewLogicalAndExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
+			case 6:
+				localctx = NewLogicalOrExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
 				p.SetState(82)
 
@@ -2304,34 +2245,17 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 				}
 				{
 					p.SetState(83)
-					p.Match(MyScriptParserLOGICAL_AND)
+					p.Match(MyScriptParserLOGICAL_OR)
 				}
 				{
 					p.SetState(84)
 					p.singleExpression(6)
 				}
 
-			case 6:
-				localctx = NewLogicalOrExpressionContext(p, NewSingleExpressionContext(p, _parentctx, _parentState))
-				p.PushNewRecursionContext(localctx, _startState, MyScriptParserRULE_singleExpression)
-				p.SetState(85)
-
-				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
-				}
-				{
-					p.SetState(86)
-					p.Match(MyScriptParserLOGICAL_OR)
-				}
-				{
-					p.SetState(87)
-					p.singleExpression(5)
-				}
-
 			}
 
 		}
-		p.SetState(92)
+		p.SetState(89)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
 	}
@@ -2420,7 +2344,7 @@ func (p *MyScriptParser) Literal() (localctx ILiteralContext) {
 	_ = this
 
 	localctx = NewLiteralContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, MyScriptParserRULE_literal)
+	p.EnterRule(localctx, 14, MyScriptParserRULE_literal)
 	var _la int
 
 	defer func() {
@@ -2441,7 +2365,7 @@ func (p *MyScriptParser) Literal() (localctx ILiteralContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(93)
+		p.SetState(90)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(_la == MyScriptParserBOOL || _la == MyScriptParserNUMBER) {
@@ -2457,7 +2381,7 @@ func (p *MyScriptParser) Literal() (localctx ILiteralContext) {
 
 func (p *MyScriptParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex int) bool {
 	switch ruleIndex {
-	case 7:
+	case 6:
 		var t *SingleExpressionContext = nil
 		if localctx != nil {
 			t = localctx.(*SingleExpressionContext)
@@ -2475,22 +2399,22 @@ func (p *MyScriptParser) SingleExpression_Sempred(localctx antlr.RuleContext, pr
 
 	switch predIndex {
 	case 0:
-		return p.Precpred(p.GetParserRuleContext(), 9)
+		return p.Precpred(p.GetParserRuleContext(), 10)
 
 	case 1:
-		return p.Precpred(p.GetParserRuleContext(), 8)
+		return p.Precpred(p.GetParserRuleContext(), 9)
 
 	case 2:
-		return p.Precpred(p.GetParserRuleContext(), 7)
+		return p.Precpred(p.GetParserRuleContext(), 8)
 
 	case 3:
-		return p.Precpred(p.GetParserRuleContext(), 6)
+		return p.Precpred(p.GetParserRuleContext(), 7)
 
 	case 4:
-		return p.Precpred(p.GetParserRuleContext(), 5)
+		return p.Precpred(p.GetParserRuleContext(), 6)
 
 	case 5:
-		return p.Precpred(p.GetParserRuleContext(), 4)
+		return p.Precpred(p.GetParserRuleContext(), 5)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))

@@ -1,4 +1,4 @@
-// Code generated from /Users/bytedance/GolandProjects/myscript/MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
+// Code generated from D:/GoProject/myscript\MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
 
 package parser // MyScriptParser
 
@@ -51,12 +51,6 @@ func (s *BaseMyScriptParserListener) EnterBlock(ctx *BlockContext) {}
 // ExitBlock is called when production block is exited.
 func (s *BaseMyScriptParserListener) ExitBlock(ctx *BlockContext) {}
 
-// EnterFuncStmt is called when production funcStmt is entered.
-func (s *BaseMyScriptParserListener) EnterFuncStmt(ctx *FuncStmtContext) {}
-
-// ExitFuncStmt is called when production funcStmt is exited.
-func (s *BaseMyScriptParserListener) ExitFuncStmt(ctx *FuncStmtContext) {}
-
 // EnterExpressionSequence is called when production expressionSequence is entered.
 func (s *BaseMyScriptParserListener) EnterExpressionSequence(ctx *ExpressionSequenceContext) {}
 
@@ -88,6 +82,12 @@ func (s *BaseMyScriptParserListener) EnterLogicalAndExpression(ctx *LogicalAndEx
 
 // ExitLogicalAndExpression is called when production LogicalAndExpression is exited.
 func (s *BaseMyScriptParserListener) ExitLogicalAndExpression(ctx *LogicalAndExpressionContext) {}
+
+// EnterFuncExpression is called when production FuncExpression is entered.
+func (s *BaseMyScriptParserListener) EnterFuncExpression(ctx *FuncExpressionContext) {}
+
+// ExitFuncExpression is called when production FuncExpression is exited.
+func (s *BaseMyScriptParserListener) ExitFuncExpression(ctx *FuncExpressionContext) {}
 
 // EnterLiteralExpression is called when production LiteralExpression is entered.
 func (s *BaseMyScriptParserListener) EnterLiteralExpression(ctx *LiteralExpressionContext) {}

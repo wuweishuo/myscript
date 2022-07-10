@@ -1,4 +1,4 @@
-// Code generated from /Users/bytedance/GolandProjects/myscript/MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
+// Code generated from D:/GoProject/myscript\MyScriptParser.g4 by ANTLR 4.10.1. DO NOT EDIT.
 
 package parser // MyScriptParser
 
@@ -23,9 +23,6 @@ type MyScriptParserListener interface {
 	// EnterBlock is called when entering the block production.
 	EnterBlock(c *BlockContext)
 
-	// EnterFuncStmt is called when entering the funcStmt production.
-	EnterFuncStmt(c *FuncStmtContext)
-
 	// EnterExpressionSequence is called when entering the expressionSequence production.
 	EnterExpressionSequence(c *ExpressionSequenceContext)
 
@@ -40,6 +37,9 @@ type MyScriptParserListener interface {
 
 	// EnterLogicalAndExpression is called when entering the LogicalAndExpression production.
 	EnterLogicalAndExpression(c *LogicalAndExpressionContext)
+
+	// EnterFuncExpression is called when entering the FuncExpression production.
+	EnterFuncExpression(c *FuncExpressionContext)
 
 	// EnterLiteralExpression is called when entering the LiteralExpression production.
 	EnterLiteralExpression(c *LiteralExpressionContext)
@@ -77,9 +77,6 @@ type MyScriptParserListener interface {
 	// ExitBlock is called when exiting the block production.
 	ExitBlock(c *BlockContext)
 
-	// ExitFuncStmt is called when exiting the funcStmt production.
-	ExitFuncStmt(c *FuncStmtContext)
-
 	// ExitExpressionSequence is called when exiting the expressionSequence production.
 	ExitExpressionSequence(c *ExpressionSequenceContext)
 
@@ -94,6 +91,9 @@ type MyScriptParserListener interface {
 
 	// ExitLogicalAndExpression is called when exiting the LogicalAndExpression production.
 	ExitLogicalAndExpression(c *LogicalAndExpressionContext)
+
+	// ExitFuncExpression is called when exiting the FuncExpression production.
+	ExitFuncExpression(c *FuncExpressionContext)
 
 	// ExitLiteralExpression is called when exiting the LiteralExpression production.
 	ExitLiteralExpression(c *LiteralExpressionContext)
