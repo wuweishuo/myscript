@@ -10,13 +10,7 @@ import (
 func Test_shell(t *testing.T) {
 	shell := NewShell()
 	script, err := shell.Compile(`
-if a <3 {
-	a = 3
-} else if a < 2 {
-	a = 2
-} else {
-	a = 4
-}
+a = add(1, 2)
 	`)
 	if err != nil {
 		panic(err)

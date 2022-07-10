@@ -32,7 +32,7 @@ singleExpression:
     | literal                                                                                           # LiteralExpression
     | IDENTIFIER L_PAREN expressionSequence R_PAREN                                                     # FuncExpression
     | IDENTIFIER                                                                                        # IdentifierExpression
-    | L_PAREN expressionSequence R_PAREN                                                                # ParenthesizedExpression
+    | L_PAREN singleExpression R_PAREN                                                                  # ParenthesizedExpression
     ;
 
 literal:

@@ -75,7 +75,7 @@ func myscriptparserParserInit() {
 		1, 0, 0, 0, 50, 48, 1, 0, 0, 0, 51, 52, 6, 6, -1, 0, 52, 53, 5, 22, 0,
 		0, 53, 66, 3, 12, 6, 11, 54, 66, 3, 14, 7, 0, 55, 56, 5, 25, 0, 0, 56,
 		57, 5, 3, 0, 0, 57, 58, 3, 10, 5, 0, 58, 59, 5, 4, 0, 0, 59, 66, 1, 0,
-		0, 0, 60, 66, 5, 25, 0, 0, 61, 62, 5, 3, 0, 0, 62, 63, 3, 10, 5, 0, 63,
+		0, 0, 60, 66, 5, 25, 0, 0, 61, 62, 5, 3, 0, 0, 62, 63, 3, 12, 6, 0, 63,
 		64, 5, 4, 0, 0, 64, 66, 1, 0, 0, 0, 65, 51, 1, 0, 0, 0, 65, 54, 1, 0, 0,
 		0, 65, 55, 1, 0, 0, 0, 65, 60, 1, 0, 0, 0, 65, 61, 1, 0, 0, 0, 66, 87,
 		1, 0, 0, 0, 67, 68, 10, 10, 0, 0, 68, 69, 7, 0, 0, 0, 69, 86, 3, 12, 6,
@@ -1190,10 +1190,10 @@ func (s *ParenthesizedExpressionContext) L_PAREN() antlr.TerminalNode {
 	return s.GetToken(MyScriptParserL_PAREN, 0)
 }
 
-func (s *ParenthesizedExpressionContext) ExpressionSequence() IExpressionSequenceContext {
+func (s *ParenthesizedExpressionContext) SingleExpression() ISingleExpressionContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IExpressionSequenceContext); ok {
+		if _, ok := ctx.(ISingleExpressionContext); ok {
 			t = ctx.(antlr.RuleContext)
 			break
 		}
@@ -1203,7 +1203,7 @@ func (s *ParenthesizedExpressionContext) ExpressionSequence() IExpressionSequenc
 		return nil
 	}
 
-	return t.(IExpressionSequenceContext)
+	return t.(ISingleExpressionContext)
 }
 
 func (s *ParenthesizedExpressionContext) R_PAREN() antlr.TerminalNode {
@@ -2100,7 +2100,7 @@ func (p *MyScriptParser) singleExpression(_p int) (localctx ISingleExpressionCon
 		}
 		{
 			p.SetState(62)
-			p.ExpressionSequence()
+			p.singleExpression(0)
 		}
 		{
 			p.SetState(63)

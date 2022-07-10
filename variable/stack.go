@@ -37,11 +37,11 @@ func (s Stack) SetVariable(name string, val Variable) {
 func (s Stack) GetVariable(name string) Variable {
 	for i := len(s.stack) - 1; i >= 0; i-- {
 		field := s.stack[i].Get(name)
-		if field != NullVariableInstance {
+		if field != Null {
 			return field
 		}
 	}
-	return NullVariableInstance
+	return Null
 }
 
 func (s Stack) PushVariables() Stack {

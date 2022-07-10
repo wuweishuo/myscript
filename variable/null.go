@@ -2,7 +2,7 @@ package variable
 
 type NullVariable struct{}
 
-var NullVariableInstance = NullVariable{}
+var Null = NullVariable{}
 
 func (n NullVariable) IsNull() bool {
 	return true

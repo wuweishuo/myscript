@@ -19,16 +19,23 @@ func (c Shell) Compile(text string) (script Script, err error) {
 	lexer := parser.NewMyScriptLexer(stream)
 	tokenStream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 	p := parser.NewMyScriptParser(tokenStream)
-	return Script{
-		ast:           p.StatementList(),
-		variableStack: variable.NewStack(),
-	}, nil
+	return NewScript(p.StatementList()), nil
 
 }
 
 type Script struct {
 	ast           parser.IStatementListContext
+	visitor       *Visitor
 	variableStack variable.Stack
+}
+
+func NewScript(ast parser.IStatementListContext) Script {
+	stack := variable.NewStack()
+	return Script{
+		ast:           ast,
+		variableStack: stack,
+		visitor:       NewVisitor(stack),
+	}
 }
 
 func (c Script) Eval(ctx context.Context) (err error) {
@@ -38,7 +45,10 @@ func (c Script) Eval(ctx context.Context) (err error) {
 			err = errors.Errorf("%v", e)
 		}
 	}()
-	antlr.ParseTreeWalkerDefault.Walk(&Listener{script: c}, c.ast)
+	res := c.visitor.Visit(c.ast)
+	if e, ok := res.(*variable.ErrorVariable); ok {
+		return e.GetError()
+	}
 	return nil
 }
 
